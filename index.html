@@ -120,12 +120,25 @@
         }
     </style>
 </head>
-<body>
+    </div> <!-- закрывает #gameContent -->
+    <body>
     <div class="container">
         <h1>Conditionals Practice</h1>
         <p class="subtitle">Complete the sentences with the correct form. Check your answers!</p>
+<!-- Start screen -->
+<div class="start-screen" id="startScreen" style="text-align: center; padding: 40px;">
+    <h2 style="color: #2c3e50; margin-bottom: 20px;">Conditionals Practice</h2>
+    <p style="color: #7f8c8d; margin-bottom: 30px; font-size: 1.1em;">
+        Complete sentences with the correct conditional forms.<br>
+        Enter your name to begin!
+    </p>
+    <input type="text" id="studentName" placeholder="Your name" style="padding: 12px; width: 80%; max-width: 300px; font-size: 16px; border: 2px solid #ddd; border-radius: 8px; text-align: center;">
+    <br><br>
+    <button class="btn" onclick="startGame()" style="width: auto; padding: 12px 30px; font-size: 18px;">Start Game ➡️</button>
+</div>
 
-        <div class="question">
+<!-- Main game content (initially hidden) -->
+<div class="game-content hidden" id="gameContent">        <div class="question">
             <span class="type-label">Zero Conditional</span>
             <p>If people ______ (recycle) more, cities ______ (become) cleaner.</p>
             <div class="input-group">
