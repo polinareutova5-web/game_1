@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>: Promises & Possibilities</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f5f9ff;
+            color: #333;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+        .question {
+            margin-bottom: 25px;
+            padding: 15px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+        }
+        .question p {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+            transition: border 0.3s;
+        }
+        input:focus {
+            outline: none;
+            border-color:498db }
+        .feedback {
+            min-height: 20px;
+            margin-top: 5px;
+            font-size: 0.9em;
+            padding-left: 5px;
+        }
+        .correct {
+            color: #27ae60;
+            display: none;
+        }
+        .incorrect {
+            color: #e74c3c;
+            display: none;
+        }
+        .btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #2980b9;
+        }
+        .score {
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 25px;
+            padding: 10px;
+            background: #e8f4fc;
+            border-radius: 8px;
+: #2c3e50;
+        }
+        .explanation {
+            margin-top: 25px;
+            padding: 15px;
+            background: #e8f4fc;
+            border-radius: 8px;
+            font-size: 0.95em;
+        }
+        .type-label {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Conditionals Practice</h1>
+        <p class="subtitle">Complete the sentences with the correct form. Check your answers!</p>
+
+        <div class="question">
+            <span class="type-label">Zero Conditional</span>
+            <p>If people ______ (recycle) more, cities ______ (become) cleaner.</p>
+            <div class="input-group">
+                <input type="text" id="q1_1">
+                <input type="text" id="q1_2">
+            </div>
+            <div class="feedback correct" id="q1_1_correct">✅ Correct!</div>
+            <div class="feedback incorrect" id="q1_1_incorrect">❌ Should be: <span class="answer">recycle</span></div>
+            <div class="feedback correct" id="q1_2_correct">✅ Correct!</div>
+            <div class="feedback incorrect" id="q1_2_incorrect">❌ Should be: <span class="answer">become</span></div>
+        </div>
+
+        <div class="question">
+            <span class="type-label">Zero Conditional</span>
+            <p>If students ______ (have) free internet at school, they ______ (learn) faster.</p>
+            <div class="input-group">
+                <input type="text" id="q2_1">
+                <input type="text" id="q2_2">
+            </div>
+            <div class="feedback correct" id="q2_1_correct">✅ Correct!</div>
+            <div class="feedback incorrect" id="q2_1_incorrect">❌ Should be: <span class="answer">have</span></div>
+            <div class="feedback correct" id="q2_2_correct">✅ Correct!</div>
+            <div class="feedback incorrect" id="q2_2_incorrect">❌ Should be: <span class="answer">learn</span></div>
+        </div>
+
+        <div class="question">
+            <span class="type-label">First Conditional</span>
+            <p>If the city ______ (build) a new park, families ______ (use) it every weekend.</p>
+            <div class="input-group">
+                <input type="text" id="q3_1">
+                <input type="text" id="q3_2">
+            </div>
+            <div class="feedback correct" id="q3_1_correct">✅ Correct!</div>
+            <div class="feedback incorrect" id="q3_1_incorrect">❌ Should be: <span class="answer">builds</span></div>
+            <div class="feedback correct" id="q3_2_correct">✅ Correct!</div>
+            <div class="feedback incorrect" id="q3_2_incorrect">❌ Should be: <span class="answer">will use</span></div>
+        </div>
+
+        <div class="question">
+            <span class="type-label">First Conditional</span>
+            <p>The government ______ (introduce) new buses if traffic ______ (get) worse.</p>
+            <div class="input-group">
+                <input type="text" id="q4_1">
+                <input type="text" id="q4_2">
+            </div>
+            <div class="feedback correct" id="q4_1_correct">✅ Correct!</div>
+            <div class="feedback incorrect" id="q4_1_incorrect">❌ Should be: <span class="answer">will introduce</span></div>
+            <div class="feedback correct" id="q4_2_correct">✅ Correct!</div>
+            <div class="feedback incorrect" id="q4_2_incorrect">❌ Should be: <span class="answer">gets</span></div>
+        </div>
+
+        <div class="question">
+span class="type-label">Second Conditional</span>
+            <p>If I ______ (be) mayor, I ______ (plant) more trees in the city center.</p>
+            <div class="input-group">
+                <input type="text" id="q5_1">
+                <input type="text" id="q5_2">
+            </div>
+            <div class="feedback correct" id="q5_1_correct">✅ Correct!</div>
+            <div class="feedback incorrect" id="q5_1_incorrect">❌ Should be: <span class="answer">were</span></div>
+            <div class="feedback correct" id="q5_2_correct">✅ Correct!</div>
+            <div class="feedback incorrect" id="q5_2_incorrect">❌ Should be: <span class="answer">would plant</span></div>
+        </div>
+
+        <div class="question">
+            <span class="type-label">Second Conditional</span>
+            <p>They ______ (improve) public transport if they ______ (have) more funding.</p>
+            <div class="input-group">
+                <input type="text" id="q6_1">
+                <input type="text" id="q6_2">
+            </div>
+            <div class="feedback correct" id="q6_1_correct">✅ Correct!</div>
+            <div class="feedback incorrect" id="q6_1_incorrect">❌ Should be: <span class="answer">would improve</span></div>
+            <div class="feedback correct" id="q6_2_correct">✅ Correct!</div>
+            <div class="feedback incorrect" id="q6_2_incorrect">❌ Should be: <span class="answer">had</span></div>
+        </div>
+
+        <div class="question">
+            <span class="type-label">Third Conditional</span>
+            <p>If the council ______ (approve) the project last year, the library ______ (open) by now.</p>
+            <div class="input-group">
+                <input type="text" id="q7_1">
+                <input type="text" id="q7_2">
+            </div>
+            <div class="feedback correct" id="q7_1_correct">✅ Correct!</div>
+            <div class="feedback incorrect" id="q7_1_incorrect">❌ Should be: <span class="answer">had approved</span></div>
+            <div class="feedback correct" id="q7_2_correct">✅ Correct!</div>
+            <div class="feedback incorrect" id="q7_2_incorrect">❌ Should be: <span class="answer">would have opened</span></div>
+        </div>
+
+        <div class="question">
+            <span class="type-label">Third Conditional</span>
+            <p>Citizens ______ (support) the plan if the authorities ______ (explain) it better.</p>
+            <div class="input-group">
+                <input type="text" id="q8_1">
+                <input type="text" id="q8_2">
+            </div>
+            <div class="feedback correct" id="q8_1_correct">✅ Correct!</div>
+            <div class="feedback incorrect" id="q8_1_incorrect">❌ Should be: <span class="answer">would have supported</span></div>
+            <div class="feedback correct" id8_2_correct">✅ Correct!</div>
+            <div class="feedback incorrect" id="q8_2_incorrect">❌ Should be: <span class="answer">had explained</span></div>
+        </div>
+
+        <button classbtn" onclick="checkAnswers все ответы</button>
+        <div class="score" id="score">Ваши баллы: 0/16</div>
+
+        <div class="explanation">
+            <p><strong>Как это работает:</strong></p>
+            <p>• Введите ответ в каждое поле</p>
+            <p>• Нажмите «Проверить все ответы»</p>
+            <p>• Зеленый текст = правильно, красный = неправильно (показывает правильный ответ)</p>
+            <>• Каждый правильный ответ = 2 балла (максимум 16)</p>
+        </div>
+    </div>
+
+    <script>
+        const correctAnswers = {
+            q1_1: "recycle",
+            q1_2: "become",
+            q2_1: "have",
+            q2_2: "learn",
+            q3_1: "builds",
+            q3_2: "will use",
+            q4_1: "will introduce",
+            q4_2: "gets",
+            q5_1: "were",
+            q5_2: "would plant",
+            q6_1: "would improve",
+            q6_2: "had",
+            q7_1: "had approved",
+            q7_2: "would have opened",
+            q8_1: "would have supported",
+            q8_2: "had explained"
+        };
+
+        function checkAnswers() {
+            let score = 0;
+            let total = 0;
+            
+            Object.keys(correctAnswers).forEach(key => {
+                const userAnswer = document.getElementById(key).value.trim().toLowerCase();
+                const correctAnswer = correctAnswers[key].toLowerCase();
+                
+                // Проверка с игнорированием пробелов и множественных пробелов
+                const normalizedUser = userAnswer.replace(/\s+/g, ' ');
+                const normalizedCorrect = correctAnswer.replace(/\s+/g, ' ');
+                
+                if (normalizedUser === normalizedCorrect) {
+                    document.getElementById(key + "_correct").style.display = "block";
+                    document.getElementById(key + "_incorrect").style.display = "none";
+                    score += 2;
+                } else {
+                    document.getElementById(key + "_correct").style.display = "none";
+                    document.getElementById(key + "_incorrect").style.display = "block";
+                }
+                total += 2;
+            });
+            
+            document.getElementById("score").innerText = `Ваши баллы: ${score}/${total}`;
+        }
+    </script>
+</body>
+</html>
