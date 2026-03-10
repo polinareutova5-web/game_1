@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>: Promises & Possibilities</title>
+    <title>Conditionals Practice: Promises & Possibilities</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -57,7 +58,8 @@
         }
         input:focus {
             outline: none;
-            border-color:498db }
+            border-color: #3498db;
+        }
         .feedback {
             min-height: 20px;
             margin-top: 5px;
@@ -95,7 +97,7 @@
             padding: 10px;
             background: #e8f4fc;
             border-radius: 8px;
-: #2c3e50;
+            color: #2c3e50;
         }
         .explanation {
             margin-top: 25px;
@@ -112,6 +114,9 @@
             border-radius: 4px;
             font-size: 0.85em;
             margin-bottom: 8px;
+        }
+        .hidden {
+            display: none;
         }
     </style>
 </head>
@@ -220,23 +225,32 @@
             </div>
             <div class="feedback correct" id="q8_1_correct">✅ Correct!</div>
             <div class="feedback incorrect" id="q8_1_incorrect">❌ Should be: <span class="answer">would have supported</span></div>
-            <div class="feedback correct" id8_2_correct">✅ Correct!</div>
+            <div class="feedback correct" id="q8_2_correct">✅ Correct!</div>
             <div class="feedback incorrect" id="q8_2_incorrect">❌ Should be: <span class="answer">had explained</span></div>
         </div>
 
-             <button class="btn" onclick="checkAnswers()">Проверить все ответы</button>
-        <div class="score" id="score">Ваши баллы: 0/16</div>
+        <button class="btn" onclick="checkAnswers()">Check all answers</button>
+        <div class="score" id="score">Your score: 0/16</div>
 
         <div class="explanation">
-            <p><strong>Как это работает:</strong></p>
-            <p>• Введите ответ в каждое поле</p>
-            <p>• Нажмите «Проверить все ответы»</p>
-            <p>• Зелёный текст = правильно, красный = неправильно (показывает правильный ответ)</p>
-            <p>• Каждый правильный ответ = 2 балла (максимум 16)</p>
+            <p><strong>How it works:</strong></p>
+            <p>• Enter your answer in each field</p>
+            <p>• Click "Check all answers"</p>
+            <p>• Green text = correct, red = incorrect (shows the right answer)</p>
+            <p>• Each correct answer = 2 points (maximum 16)</p>
         </div>
     </div>
 
     <script>
+        // === EMAILJS SETTINGS (REPLACE WITH YOUR KEYS!) ===
+        const EMAILJS_PUBLIC_KEY = '5pr0ogZO-p_rnGori'; // ← REPLACE WITH YOURS!
+        const EMAILJS_SERVICE_ID = 'service_fsukmnh';    // ← REPLACE WITH YOURS!
+        const EMAILJS_TEMPLATE_ID = 'template_vysy7hd'; // ← REPLACE WITH YOURS!
+        const TEACHER_EMAIL = 'polinareutova5@gmail.com';
+        
+        // Initialize EmailJS
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+        
         const correctAnswers = {
             q1_1: "recycle",
             q1_2: "become",
@@ -259,12 +273,14 @@
         function checkAnswers() {
             let score = 0;
             let total = 0;
+            const studentName = prompt("What's your name?", "Student") || "Anonymous";
+            const studentId = studentName.toLowerCase().replace(/\s+/g, '_') + '_' + Date.now().toString().slice(-4);
             
             Object.keys(correctAnswers).forEach(key => {
                 const userAnswer = document.getElementById(key).value.trim().toLowerCase();
                 const correctAnswer = correctAnswers[key].toLowerCase();
                 
-                // Проверка с игнорированием пробелов и множественных пробелов
+                // Check ignoring extra spaces
                 const normalizedUser = userAnswer.replace(/\s+/g, ' ');
                 const normalizedCorrect = correctAnswer.replace(/\s+/g, ' ');
                 
@@ -279,7 +295,37 @@
                 total += 2;
             });
             
-            document.getElementById("score").innerText = `Ваши баллы: ${score}/${total}`;
+            document.getElementById("score").innerText = `Your score: ${score}/${total}`;
+            
+            // Send results to teacher
+            sendResultToTeacher(studentName, studentId, score, total);
+        }
+        
+        function sendResultToTeacher(studentName, studentId, score, total) {
+            const templateParams = {
+                to_email: TEACHER_EMAIL,
+                student_name: studentName,
+                student_id: studentId,
+                score: score,
+                total: total,
+                game: "Conditionals Practice: Promises & Possibilities",
+                date: new Date().toLocaleString('en-US', {
+                    month: 'long',
+                    day: 'numeric',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                })
+            };
+            
+            // Send via EmailJS
+            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+                .then((response) => {
+                    console.log('✅ Email sent to teacher!', response);
+                })
+                .catch((error) => {
+                    console.error('❌ Email sending failed:', error);
+                });
         }
     </script>
 </body>
