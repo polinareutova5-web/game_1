@@ -118,143 +118,150 @@
         .hidden {
             display: none;
         }
+        .start-screen {
+            text-align: center;
+            padding: 40px;
+        }
     </style>
 </head>
-    <body>
+<body>
     <div class="container">
-        <h1>Conditionals Practice</h1>
-        <p class="subtitle">Complete the sentences with the correct form. Check your answers!</p>
-<!-- Start screen -->
-<div class="start-screen" id="startScreen" style="text-align: center; padding: 40px;">
-    <h2 style="color: #2c3e50; margin-bottom: 20px;">Conditionals Practice</h2>
-    <p style="color: #7f8c8d; margin-bottom: 30px; font-size: 1.1em;">
-        Complete sentences with the correct conditional forms.<br>
-        Enter your name to begin!
-    </p>
-    <input type="text" id="studentName" placeholder="Your name" style="padding: 12px; width: 80%; max-width: 300px; font-size: 16px; border: 2px solid #ddd; border-radius: 8px; text-align: center;">
-    <br><br>
-    <button class="btn" onclick="startGame()" style="width: auto; padding: 12px 30px; font-size: 18px;">Start Game ➡️</button>
-</div>
-
-<!-- Main game content (initially hidden) -->
-<div class="game-content hidden" id="gameContent">        <div class="question">
-            <span class="type-label">Zero Conditional</span>
-            <p>If people ______ (recycle) more, cities ______ (become) cleaner.</p>
-            <div class="input-group">
-                <input type="text" id="q1_1">
-                <input type="text" id="q1_2">
-            </div>
-            <div class="feedback correct" id="q1_1_correct">✅ Correct!</div>
-            <div class="feedback incorrect" id="q1_1_incorrect">❌ Should be: <span class="answer">recycle</span></div>
-            <div class="feedback correct" id="q1_2_correct">✅ Correct!</div>
-            <div class="feedback incorrect" id="q1_2_incorrect">❌ Should be: <span class="answer">become</span></div>
+        <!-- Start screen -->
+        <div class="start-screen" id="startScreen">
+            <h1>Conditionals Practice</h1>
+            <p style="color: #7f8c8d; margin-bottom: 30px; font-size: 1.1em;">
+                Complete sentences with the correct conditional forms.<br>
+                Enter your name to begin!
+            </p>
+            <input type="text" id="studentName" placeholder="Your name" style="padding: 12px; width: 80%; max-width: 300px; font-size: 16px; border: 2px solid #ddd; border-radius: 8px; text-align: center;">
+            <br><br>
+            <button class="btn" onclick="startGame()" style="width: auto; padding: 12px 30px; font-size: 18px;">Start Game ➡️</button>
         </div>
 
-        <div class="question">
-            <span class="type-label">Zero Conditional</span>
-            <p>If students ______ (have) free internet at school, they ______ (learn) faster.</p>
-            <div class="input-group">
-                <input type="text" id="q2_1">
-                <input type="text" id="q2_2">
+        <!-- Main game content (initially hidden) -->
+        <div class="game-content hidden" id="gameContent">
+            <h1>Conditionals Practice</h1>
+            <p class="subtitle">Complete the sentences with the correct form. Check your answers!</p>
+
+            <div class="question">
+                <span class="type-label">Zero Conditional</span>
+                <p>If people ______ (recycle) more, cities ______ (become) cleaner.</p>
+                <div class="input-group">
+                    <input type="text" id="q1_1">
+                    <input type="text" id="q1_2">
+                </div>
+                <div class="feedback correct" id="q1_1_correct">✅ Correct!</div>
+                <div class="feedback incorrect" id="q1_1_incorrect">❌ Should be: <span class="answer">recycle</span></div>
+                <div class="feedback correct" id="q1_2_correct">✅ Correct!</div>
+                <div class="feedback incorrect" id="q1_2_incorrect">❌ Should be: <span class="answer">become</span></div>
             </div>
-            <div class="feedback correct" id="q2_1_correct">✅ Correct!</div>
-            <div class="feedback incorrect" id="q2_1_incorrect">❌ Should be: <span class="answer">have</span></div>
-            <div class="feedback correct" id="q2_2_correct">✅ Correct!</div>
-            <div class="feedback incorrect" id="q2_2_incorrect">❌ Should be: <span class="answer">learn</span></div>
-        </div>
 
-        <div class="question">
-            <span class="type-label">First Conditional</span>
-            <p>If the city ______ (build) a new park, families ______ (use) it every weekend.</p>
-            <div class="input-group">
-                <input type="text" id="q3_1">
-                <input type="text" id="q3_2">
+            <div class="question">
+                <span class="type-label">Zero Conditional</span>
+                <p>If students ______ (have) free internet at school, they ______ (learn) faster.</p>
+                <div class="input-group">
+                    <input type="text" id="q2_1">
+                    <input type="text" id="q2_2">
+                </div>
+                <div class="feedback correct" id="q2_1_correct">✅ Correct!</div>
+                <div class="feedback incorrect" id="q2_1_incorrect">❌ Should be: <span class="answer">have</span></div>
+                <div class="feedback correct" id="q2_2_correct">✅ Correct!</div>
+                <div class="feedback incorrect" id="q2_2_incorrect">❌ Should be: <span class="answer">learn</span></div>
             </div>
-            <div class="feedback correct" id="q3_1_correct">✅ Correct!</div>
-            <div class="feedback incorrect" id="q3_1_incorrect">❌ Should be: <span class="answer">builds</span></div>
-            <div class="feedback correct" id="q3_2_correct">✅ Correct!</div>
-            <div class="feedback incorrect" id="q3_2_incorrect">❌ Should be: <span class="answer">will use</span></div>
-        </div>
 
-        <div class="question">
-            <span class="type-label">First Conditional</span>
-            <p>The government ______ (introduce) new buses if traffic ______ (get) worse.</p>
-            <div class="input-group">
-                <input type="text" id="q4_1">
-                <input type="text" id="q4_2">
+            <div class="question">
+                <span class="type-label">First Conditional</span>
+                <p>If the city ______ (build) a new park, families ______ (use) it every weekend.</p>
+                <div class="input-group">
+                    <input type="text" id="q3_1">
+                    <input type="text" id="q3_2">
+                </div>
+                <div class="feedback correct" id="q3_1_correct">✅ Correct!</div>
+                <div class="feedback incorrect" id="q3_1_incorrect">❌ Should be: <span class="answer">builds</span></div>
+                <div class="feedback correct" id="q3_2_correct">✅ Correct!</div>
+                <div class="feedback incorrect" id="q3_2_incorrect">❌ Should be: <span class="answer">will use</span></div>
             </div>
-            <div class="feedback correct" id="q4_1_correct">✅ Correct!</div>
-            <div class="feedback incorrect" id="q4_1_incorrect">❌ Should be: <span class="answer">will introduce</span></div>
-            <div class="feedback correct" id="q4_2_correct">✅ Correct!</div>
-            <div class="feedback incorrect" id="q4_2_incorrect">❌ Should be: <span class="answer">gets</span></div>
-        </div>
 
-        <div class="question">
-            <span class="type-label">Second Conditional</span>
-            <p>If I ______ (be) mayor, I ______ (plant) more trees in the city center.</p>
-            <div class="input-group">
-                <input type="text" id="q5_1">
-                <input type="text" id="q5_2">
+            <div class="question">
+                <span class="type-label">First Conditional</span>
+                <p>The government ______ (introduce) new buses if traffic ______ (get) worse.</p>
+                <div class="input-group">
+                    <input type="text" id="q4_1">
+                    <input type="text" id="q4_2">
+                </div>
+                <div class="feedback correct" id="q4_1_correct">✅ Correct!</div>
+                <div class="feedback incorrect" id="q4_1_incorrect">❌ Should be: <span class="answer">will introduce</span></div>
+                <div class="feedback correct" id="q4_2_correct">✅ Correct!</div>
+                <div class="feedback incorrect" id="q4_2_incorrect">❌ Should be: <span class="answer">gets</span></div>
             </div>
-            <div class="feedback correct" id="q5_1_correct">✅ Correct!</div>
-            <div class="feedback incorrect" id="q5_1_incorrect">❌ Should be: <span class="answer">were</span></div>
-            <div class="feedback correct" id="q5_2_correct">✅ Correct!</div>
-            <div class="feedback incorrect" id="q5_2_incorrect">❌ Should be: <span class="answer">would plant</span></div>
-        </div>
 
-        <div class="question">
-            <span class="type-label">Second Conditional</span>
-            <p>They ______ (improve) public transport if they ______ (have) more funding.</p>
-            <div class="input-group">
-                <input type="text" id="q6_1">
-                <input type="text" id="q6_2">
+            <div class="question">
+                <span class="type-label">Second Conditional</span>
+                <p>If I ______ (be) mayor, I ______ (plant) more trees in the city center.</p>
+                <div class="input-group">
+                    <input type="text" id="q5_1">
+                    <input type="text" id="q5_2">
+                </div>
+                <div class="feedback correct" id="q5_1_correct">✅ Correct!</div>
+                <div class="feedback incorrect" id="q5_1_incorrect">❌ Should be: <span class="answer">were</span></div>
+                <div class="feedback correct" id="q5_2_correct">✅ Correct!</div>
+                <div class="feedback incorrect" id="q5_2_incorrect">❌ Should be: <span class="answer">would plant</span></div>
             </div>
-            <div class="feedback correct" id="q6_1_correct">✅ Correct!</div>
-            <div class="feedback incorrect" id="q6_1_incorrect">❌ Should be: <span class="answer">would improve</span></div>
-            <div class="feedback correct" id="q6_2_correct">✅ Correct!</div>
-            <div class="feedback incorrect" id="q6_2_incorrect">❌ Should be: <span class="answer">had</span></div>
-        </div>
 
-        <div class="question">
-            <span class="type-label">Third Conditional</span>
-            <p>If the council ______ (approve) the project last year, the library ______ (open) by now.</p>
-            <div class="input-group">
-                <input type="text" id="q7_1">
-                <input type="text" id="q7_2">
+            <div class="question">
+                <span class="type-label">Second Conditional</span>
+                <p>They ______ (improve) public transport if they ______ (have) more funding.</p>
+                <div class="input-group">
+                    <input type="text" id="q6_1">
+                    <input type="text" id="q6_2">
+                </div>
+                <div class="feedback correct" id="q6_1_correct">✅ Correct!</div>
+                <div class="feedback incorrect" id="q6_1_incorrect">❌ Should be: <span class="answer">would improve</span></div>
+                <div class="feedback correct" id="q6_2_correct">✅ Correct!</div>
+                <div class="feedback incorrect" id="q6_2_incorrect">❌ Should be: <span class="answer">had</span></div>
             </div>
-            <div class="feedback correct" id="q7_1_correct">✅ Correct!</div>
-            <div class="feedback incorrect" id="q7_1_incorrect">❌ Should be: <span class="answer">had approved</span></div>
-            <div class="feedback correct" id="q7_2_correct">✅ Correct!</div>
-            <div class="feedback incorrect" id="q7_2_incorrect">❌ Should be: <span class="answer">would have opened</span></div>
-        </div>
 
-        <div class="question">
-            <span class="type-label">Third Conditional</span>
-            <p>Citizens ______ (support) the plan if the authorities ______ (explain) it better.</p>
-            <div class="input-group">
-                <input type="text" id="q8_1">
-                <input type="text" id="q8_2">
+            <div class="question">
+                <span class="type-label">Third Conditional</span>
+                <p>If the council ______ (approve) the project last year, the library ______ (open) by now.</p>
+                <div class="input-group">
+                    <input type="text" id="q7_1">
+                    <input type="text" id="q7_2">
+                </div>
+                <div class="feedback correct" id="q7_1_correct">✅ Correct!</div>
+                <div class="feedback incorrect" id="q7_1_incorrect">❌ Should be: <span class="answer">had approved</span></div>
+                <div class="feedback correct" id="q7_2_correct">✅ Correct!</div>
+                <div class="feedback incorrect" id="q7_2_incorrect">❌ Should be: <span class="answer">would have opened</span></div>
             </div>
-            <div class="feedback correct" id="q8_1_correct">✅ Correct!</div>
-            <div class="feedback incorrect" id="q8_1_incorrect">❌ Should be: <span class="answer">would have supported</span></div>
-            <div class="feedback correct" id="q8_2_correct">✅ Correct!</div>
-            <div class="feedback incorrect" id="q8_2_incorrect">❌ Should be: <span class="answer">had explained</span></div>
-        </div>
 
-        <button class="btn" onclick="checkAnswers()">Check all answers</button>
-        <div class="score" id="score">Your score: 0/16</div>
+            <div class="question">
+                <span class="type-label">Third Conditional</span>
+                <p>Citizens ______ (support) the plan if the authorities ______ (explain) it better.</p>
+                <div class="input-group">
+                    <input type="text" id="q8_1">
+                    <input type="text" id="q8_2">
+                </div>
+                <div class="feedback correct" id="q8_1_correct">✅ Correct!</div>
+                <div class="feedback incorrect" id="q8_1_incorrect">❌ Should be: <span class="answer">would have supported</span></div>
+                <div class="feedback correct" id="q8_2_correct">✅ Correct!</div>
+                <div class="feedback incorrect" id="q8_2_incorrect">❌ Should be: <span class="answer">had explained</span></div>
+            </div>
 
-        <div class="explanation">
-            <p><strong>How it works:</strong></p>
-            <p>• Enter your answer in each field</p>
-            <p>• Click "Check all answers"</p>
-            <p>• Green text = correct, red = incorrect (shows the right answer)</p>
-            <p>• Each correct answer = 2 points (maximum 16)</p>
+            <button class="btn" onclick="checkAnswers()">Check all answers</button>
+            <div class="score" id="score">Your score: 0/16</div>
+
+            <div class="explanation">
+                <p><strong>How it works:</strong></p>
+                <p>• Enter your answer in each field</p>
+                <p>• Click "Check all answers"</p>
+                <p>• Green text = correct, red = incorrect (shows the right answer)</p>
+                <p>• Each correct answer = 2 points (maximum 16)</p>
+            </div>
         </div>
     </div>
 
     <script>
-        // === EMAILJS SETTINGS (REPLACE WITH YOUR KEYS!) ===
+    // === EMAILJS SETTINGS (REPLACE WITH YOUR KEYS!) ===
         const EMAILJS_PUBLIC_KEY = '5pr0ogZO-p_rnGori'; // ← REPLACE WITH YOURS!
         const EMAILJS_SERVICE_ID = 'service_fsukmnh';    // ← REPLACE WITH YOURS!
         const EMAILJS_TEMPLATE_ID = 'template_vysy7hd'; // ← REPLACE WITH YOURS!
@@ -262,6 +269,24 @@
         
         // Initialize EmailJS
         emailjs.init(EMAILJS_PUBLIC_KEY);
+        
+        let studentName = '';
+        let studentId = '';
+        
+        // === NEW FUNCTION: start the game ===
+        function startGame() {
+            studentName = document.getElementById('studentName').value.trim();
+            if (!studentName) {
+                alert('Please enter your name to start!');
+                return;
+            }
+            
+            studentId = studentName.toLowerCase().replace(/\s+/g, '_') + '_' + Date.now().toString().slice(-4);
+            
+            // Hide start screen, show game
+            document.getElementById('startScreen').classList.add('hidden');
+            document.getElementById('gameContent').classList.remove('hidden');
+        }
         
         const correctAnswers = {
             q1_1: "recycle",
@@ -285,14 +310,11 @@
         function checkAnswers() {
             let score = 0;
             let total = 0;
-            const studentName = prompt("What's your name?", "Student") || "Anonymous";
-            const studentId = studentName.toLowerCase().replace(/\s+/g, '_') + '_' + Date.now().toString().slice(-4);
             
             Object.keys(correctAnswers).forEach(key => {
                 const userAnswer = document.getElementById(key).value.trim().toLowerCase();
                 const correctAnswer = correctAnswers[key].toLowerCase();
                 
-                // Check ignoring extra spaces
                 const normalizedUser = userAnswer.replace(/\s+/g, ' ');
                 const normalizedCorrect = correctAnswer.replace(/\s+/g, ' ');
                 
@@ -330,7 +352,6 @@
                 })
             };
             
-            // Send via EmailJS
             emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
                 .then((response) => {
                     console.log('✅ Email sent to teacher!', response);
@@ -340,6 +361,8 @@
                 });
         }
     </script>
-            </div> <!-- закрывает #gameContent -->
-    </body>
-</html>
+</body>
+</html> 
+       
+        
+    
